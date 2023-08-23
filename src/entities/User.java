@@ -5,27 +5,34 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class User {
 	private String name;
 	private String age;
 	private String work;
 	
-	public void registerNewUser(String name, String age, String work) {
-		this.name = name;
-		this.age = age;
-		this.work = work;
+	Scanner input = new Scanner(System.in);
+	
+	public void registerUser() {	
+		System.out.print("Nome: ");
+		name = input.nextLine();
 		
-		saveNewUser();
+		System.out.print("Idade: ");
+		age = input.nextLine();
+						
+		System.out.print("Profissão: ");
+		work = input.nextLine();
+		
+		saveUser();
 	}
 	
-	public void saveNewUser() {
+	public void saveUser() {
 		String[] lines = new String[] {"Nome: " + name, "Idade: " + age, "Profissão: " + work};
 		
-		String path = "C:\\temp\\eventos.txt";
+		String path = "C:\\temp\\usuarios.txt";
 		
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-			
 			bw.newLine();
 			
 			for(String line : lines) {
@@ -39,7 +46,7 @@ public class User {
 	}
 	
 	public void getUsers() {
-		String path = "C:\\temp\\eventos.txt";
+		String path = "C:\\temp\\usuarios.txt";
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			String line = br.readLine();
