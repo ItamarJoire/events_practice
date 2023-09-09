@@ -15,13 +15,13 @@ public class User {
 	Scanner input = new Scanner(System.in);
 	
 	public void registerUser() {	
-		System.out.print("Nome: ");
+		System.out.print(" Nome: ");
 		name = input.nextLine();
 		
-		System.out.print("Idade: ");
+		System.out.print(" Idade: ");
 		age = input.nextLine();
 						
-		System.out.print("Profissão: ");
+		System.out.print(" Profissão: ");
 		work = input.nextLine();
 		
 		saveUser();

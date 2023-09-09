@@ -22,24 +22,28 @@ public class Event {
 	Scanner input = new Scanner(System.in);
 
 	public void registerEvent() {
-		System.out.print("Nome: ");
+		System.out.print(" Nome: ");
 		name = input.nextLine();
 		
-		System.out.print("Decrição: ");
+		System.out.print(" Decrição: ");
 		description = input.nextLine();
 						
-		System.out.println("Categoria: ");
-		System.out.println("p - Profissional");
-		System.out.println("c - Cultural");
+		System.out.println(" Categoria: ");
+		System.out.println("  (p) - Profissional");
+		System.out.println("  (c) - Cultural");
+		System.out.println("  (a) - Artístico");
+		System.out.println("  (r) - Religioso");
+		System.out.println("  (s) - Social");
+		System.out.println("  (o) - Oficial");
 		
 		String value = input.nextLine();
 		
 		getCategories(value);
 		
-		System.out.print("Endereço: ");
+		System.out.print(" Endereço: ");
 		address = input.nextLine();
 		
-		System.out.print("Data e hora: (formato: xx/xx/xx xx:xx)");
+		System.out.print(" Data e hora: (formato: xx/xx/xx xx:xx): ");
 		String inputDateAndHours = input.nextLine();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
@@ -47,7 +51,7 @@ public class Event {
             dateAndHours = LocalDateTime.parse(inputDateAndHours, formatter);
             dateAndHoursString = dateAndHours.format(formatter);
         } catch (Exception e) {
-            System.out.println("Formato inválido. Certifique-se de usar o formato correto.");
+            System.out.println(" Formato inválido. Certifique-se de usar o formato correto.");
         }
 		
 		saveEvent();

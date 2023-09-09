@@ -15,12 +15,12 @@ public class Menu {
 		int option = 0;
 		
 		do {
-			System.out.println();
-			System.out.println("0 - Finalizar");
-			System.out.println("1 - Cadastrar novo usuário");
-			System.out.println("2 - Lista de usuários");
-			System.out.println("3 - Cadastrar novo evento");
-			System.out.println("4 - Lista de eventos");
+			System.out.println(" (1) - Cadastrar novo usuário");
+			System.out.println(" (2) - Cadastrar novo evento");
+			System.out.println(" (3) - Listar usuários");
+			System.out.println(" (4) - Listar eventos");
+			System.out.println(" -------------------------------");
+			System.out.println(" (0) - Finalizar programa!");
 			
 			option = input.nextInt();
 			
@@ -28,21 +28,24 @@ public class Menu {
 				case 1:
 					user.registerUser();
 					break;
+				
+				case 2:
+					event.registerEvent();
+					break;
 					
-				case 2: 
+				case 3: 
 					user.getUsers();
 					break;
 					
-				case 3:
-					event.registerEvent();
-					break;
 				case 4:
 					event.getEvents();
 					break;
 					
 				default:
-					System.out.println("Default");
+					System.out.println(" Programa finalizado!");
 			}
+			
+			System.out.println();
 			
 		}while(option != 0);
 		
